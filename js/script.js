@@ -44,6 +44,15 @@ const app = new Vue ({
             } else {
             this.activeIndex--; //descremento di uno
             }
-        }
+        },
+        
+            
+                
+            
+    },
+    created() {
+        setInterval(() => {
+            this.next();   //richiamo la stessa funzione definita per il bottone avanti!
+        }, 3000)
     }
 });
