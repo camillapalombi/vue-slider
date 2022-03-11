@@ -1,6 +1,7 @@
 const app = new Vue ({
     el : '#root',
     data : { //struttura dati:
+        activeIndex : 0,
         arrObjCountries : [
             {
                 title : 'Svezia',
@@ -27,6 +28,22 @@ const app = new Vue ({
                 image : '05.jpg',
                 description : 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam.'
             }
-        ]
+        ],
+    },
+    methods : {
+        next() { //bottone avanti
+            if (this.activeIndex < this.arrObjCountries.length - 1) {
+                this.activeIndex++; //incrementa di uno
+            } else {
+                this.activeIndex = 0;
+            }
+        },
+        previus() { //bottone indietro
+            if (this.activeIndex == 0) {
+            this.activeIndex = this.arrObjCountries.length - 1;
+            } else {
+            this.activeIndex--; //descremento di uno
+            }
+        }
     }
 });
