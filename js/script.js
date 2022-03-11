@@ -45,14 +45,19 @@ const app = new Vue ({
             this.activeIndex--; //descremento di uno
             }
         },
-        
-            
-                
-            
+        mouseover : function() {
+            clearInterval(scrolling);
+        },
+        mouseleave : function() {
+            scrolling = setInterval(() => {
+                this.next();   //richiamo la stessa funzione definita per il bottone avanti!
+                }, 3000)
+        }
     },
     created() {
-        setInterval(() => {
+        scrolling = setInterval(() => {
             this.next();   //richiamo la stessa funzione definita per il bottone avanti!
         }, 3000)
     }
 });
+
