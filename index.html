@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Slider Vue</title>
+    <!--CSS-->
+	<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <!--CONTAINER VUE.JS-->
+	<div id="root">
+
+        <!--SLIDER-->
+		<div class="slider">
+			<div class="slide">
+				<img :src="'img/' + arrObjCountries[activeIndex].image" :alt="arrObjCountries[activeIndex].title">
+				<div class="slide-contents">
+					<h2 class="slide-title">{{ arrObjCountries[activeIndex].title }}</h2>
+					<p class="slide-text">{{ arrObjCountries[activeIndex].description }}</p>
+				</div>
+			</div>
+
+            <!--THUMBS-->
+			<div class="thumbs">
+				<div v-for="(thumb, index) in arrObjCountries" @click="activeIndex == index" :class="activeIndex == index ? 'active' : ''" class="thumb">
+					<img :src="'img/' + thumb.image"  :alt="thumb.title">
+				</div>
+				
+                <!--Bottoni avanti/indietro-->
+				<button @click="previus" class="btn-control btn-previus">&and;</button>
+				<button @click="next" class="btn-control btn-next">&or;</button>
+
+			</div>
+		</div>
+	</div>
+    <!--FINE CONTAINER VUE.JS-->
+
+
+
+    <!--VUE.JS-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!--MY JS-->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
