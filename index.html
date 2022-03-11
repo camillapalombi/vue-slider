@@ -14,7 +14,7 @@
 	<div id="root">
 
         <!--SLIDER-->
-		<div class="slider">
+		<div @mouseover="mouseover" @mouseleave="mouseleave" class="slider">
 			<div class="slide">
 				<img :src="'img/' + arrObjCountries[activeIndex].image" :alt="arrObjCountries[activeIndex].title">
 				<div class="slide-contents">
@@ -25,7 +25,7 @@
 
             <!--THUMBS-->
 			<div class="thumbs">
-				<div v-for="(thumb, index) in arrObjCountries" @click="activeIndex == index" :class="activeIndex == index ? 'active' : ''" class="thumb">
+				<div v-for="(thumb, index) in arrObjCountries" @click="activeIndex = index" :class="activeIndex == index ? 'active' : ''" class="thumb">
 					<img :src="'img/' + thumb.image"  :alt="thumb.title">
 				</div>
 				
